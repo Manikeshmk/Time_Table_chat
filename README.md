@@ -21,7 +21,21 @@ Most institutional timetables are designed for human eyes, not machines. This cr
 
 ### ✅ Our Solution
 We built an **automated coordinate-mapping engine**. By reading the underlying XML structure of the spreadsheet via `openpyxl`, our tool "re-hydrates" every individual cell, ensuring 100% data continuity across merged ranges.
+---
 
+## 🔄 Data Transformation Pipeline
+
+To bridge the gap between human-centric design and machine-readable data, the engine performs a complete structural overhaul of the source spreadsheet.
+
+### 1️⃣ Initial State (Raw Spreadsheet)
+The raw data contains merged cells and multi-layered headers that standard parsers cannot interpret correctly.
+![Raw Spreadsheet](./raw.png)
+
+### 2️⃣ Final State (Intelligent Table)
+The engine "hydrates" the grid, splitting merged cells and standardizing every slot into a queryable, 1:1 coordinate map.
+![Transformed Table](./transformed.png)
+
+---
 ---
 
 ## 🛠️ Tech Stack & Objects
