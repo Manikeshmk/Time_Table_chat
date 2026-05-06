@@ -1,61 +1,63 @@
 # 📅 Intelligent Timetable & Schedule Automator
+> **Transforming messy spreadsheets into queryable intelligence.**
 
-An advanced Python-based solution that transforms complex, non-standard institutional spreadsheets into an interactive, queryable AI assistant.
-
----
-
-## 🛠️ Tech Stack
-
-| Technology | Purpose |
-| :--- | :--- |
-| **Python 3.12** | Core programming logic |
-| **Pandas** | High-performance data manipulation and filtering |
-| **Openpyxl** | Spreadsheet metadata parsing & merged cell handling |
-| **Regex (re)** | Natural language time and date extraction |
-| **Requests** | Live cloud data synchronization |
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white)
+![Excel](https://img.shields.io/badge/Microsoft_Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)
 
 ---
 
 ## 💡 The Problem We Solved
 
-### The Major Issue: "Non-Standard Grid Mess"
-Most academic or corporate timetables are designed for human eyes, not machines. They use **merged cells** to show long lectures, **irregular gaps** to show breaks, and **overlapping slots** for elective "baskets." Standard CSV parsers fail here because:
-1. They leave "holes" in the data where cells were merged.
-2. They cannot correlate a specific time (e.g., 11:15 AM) if it falls in the middle of a 2-hour merged block.
-3. Irregular naming conventions make standard search impossible.
+### ⚠️ The Challenge: "The Non-Standard Grid"
+Most institutional timetables are designed for human eyes, not machines. This creates a "Data Desert" for automation:
+*   **🧩 Merged Cells:** Visual blocks that hide data from standard CSV parsers.
+*   **🕳️ Irregular Gaps:** Breaks and transitions that confuse linear search.
+*   **🎭 Complex Baskets:** Overlapping elective slots that require contextual filtering.
 
-### Our Solution
-We built an **automated coordinate-mapping engine** that treats the spreadsheet like a database. By reading the Excel XML structure directly, we "re-hydrate" empty merged cells and standardize every minute of the day into a searchable grid.
+### ✅ Our Solution
+We built an **automated coordinate-mapping engine**. By reading the underlying XML structure of the spreadsheet, our tool "re-hydrates" every individual cell, ensuring 100% data continuity across merged ranges.
+
+---
+
+## 🛠️ Tech Stack & Objects
+
+*   **🐍 Python 3.12:** The backbone of the logic engine.
+*   **🐼 Pandas:** High-performance indexing for the coordinate system.
+*   **🔓 Openpyxl:** Deep-meta parsing to decode merged cell boundaries.
+*   **🧪 Regex (re):** Pattern matching for natural language time extraction.
+*   **🌐 Requests:** Real-time cloud synchronization with remote sources.
 
 ---
 
 ## ⚙️ Core Logic
 
-1.  **Metadata Extraction**: Instead of reading raw text, the script identifies the boundaries of the grid using anchor keywords (`Time`, `Day`).
-2.  **Cell Normalization**: Uses `openpyxl` to detect `merged_cells` ranges. It clones the value from the lead cell to all "hidden" cells within the range, ensuring data continuity.
-3.  **Intelligence Layer**: 
-    *   **Temporal Parsing**: Converts queries like "tomorrow" or "15-08-2026" into calendar objects.
-    *   **Range Validation**: If you ask for "11:00," the AI checks if that timestamp sits between the `start` and `end` times of any known session.
-4.  **Consolidation Algorithm**: Intelligently merges consecutive identical slots into a single human-readable block (e.g., three 30-minute segments become one 90-minute entry).
+| Phase | Object | Description |
+| :--- | :---: | :--- |
+| **Boundary Detection** | 📍 | Identifies grid anchors using keywords like `Time` and `Day`. |
+| **Cell Hydration** | 💧 | Clones values from lead cells into all secondary merged coordinates. |
+| **Temporal Parsing** | 🕰️ | Translates "tomorrow" or "10:45" into machine-readable calendar objects. |
+| **Smart Consolidation** | 🔗 | Merges consecutive 15/30-min segments into single human blocks. |
 
 ---
 
-## 🚀 Advantages
+## 🚀 Key Advantages
 
-*   **Zero Manual Entry**: Syncs directly with a Google Sheets/Excel URL.
-*   **Contextual Awareness**: Knows what day it is today and what "tomorrow" means without user input.
-*   **Gap Preservation**: Distinguishes between a "merged cell" and a "free period" (Gap).
-*   **Natural Language Support**: Ask for specific courses, specific times, or full-day summaries.
+*   **✨ Zero Manual Entry:** Syncs directly via live URL.
+*   **🧠 Context Awareness:** Automatically identifies "today" vs "tomorrow" using system clocks.
+*   **🛡️ Gap Preservation:** Smart enough to know the difference between a merged lecture and a free period.
+*   **💬 Human-Centric Output:** No column letters or row numbers—just clean times and subjects.
 
 ---
 
-## 📖 How to Use
+## 📖 Usage Examples
 ```python
-# To see today's consolidated schedule
+# 📅 Get your full consolidated schedule for the day
 assistant("What classes do I have today?")
 
-# To find a specific course
-assistant("When is the Machine Learning session?")
+# 🔍 Find every instance of a specific course
+assistant("When is the Data Security session?")
 
-# To check a specific time
-assistant("Today 10:45 class")
+# ⏱️ Check a specific time-window
+assistant("Today 12:15 class")
