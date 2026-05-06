@@ -1,10 +1,13 @@
 # 📅 Intelligent Timetable & Schedule Automator
 > **Transforming messy spreadsheets into queryable intelligence.**
 
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![Python](https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white)
-![Excel](https://img.shields.io/badge/Microsoft_Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white)
-![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)
+![Microsoft Excel](https://img.shields.io/badge/Microsoft_Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white)
+![Openpyxl](https://img.shields.io/badge/openpyxl-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Regex](https://img.shields.io/badge/Regex-4285F4?style=for-the-badge&logo=google-cloud&logoColor=white)
+![Requests](https://img.shields.io/badge/Requests-000000?style=for-the-badge&logo=google-chrome&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
 
 ---
 
@@ -17,7 +20,7 @@ Most institutional timetables are designed for human eyes, not machines. This cr
 *   **🎭 Complex Baskets:** Overlapping elective slots that require contextual filtering.
 
 ### ✅ Our Solution
-We built an **automated coordinate-mapping engine**. By reading the underlying XML structure of the spreadsheet, our tool "re-hydrates" every individual cell, ensuring 100% data continuity across merged ranges.
+We built an **automated coordinate-mapping engine**. By reading the underlying XML structure of the spreadsheet via `openpyxl`, our tool "re-hydrates" every individual cell, ensuring 100% data continuity across merged ranges.
 
 ---
 
@@ -25,7 +28,7 @@ We built an **automated coordinate-mapping engine**. By reading the underlying X
 
 *   **🐍 Python 3.12:** The backbone of the logic engine.
 *   **🐼 Pandas:** High-performance indexing for the coordinate system.
-*   **🔓 Openpyxl:** Deep-meta parsing to decode merged cell boundaries.
+*   **🔓 Openpyxl:** Deep-meta parsing to decode merged cell boundaries and metadata.
 *   **🧪 Regex (re):** Pattern matching for natural language time extraction.
 *   **🌐 Requests:** Real-time cloud synchronization with remote sources.
 
@@ -36,7 +39,7 @@ We built an **automated coordinate-mapping engine**. By reading the underlying X
 | Phase | Object | Description |
 | :--- | :---: | :--- |
 | **Boundary Detection** | 📍 | Identifies grid anchors using keywords like `Time` and `Day`. |
-| **Cell Hydration** | 💧 | Clones values from lead cells into all secondary merged coordinates. |
+| **Cell Hydration** | 💧 | Clones values from lead cells into all secondary merged coordinates using `openpyxl`. |
 | **Temporal Parsing** | 🕰️ | Translates "tomorrow" or "10:45" into machine-readable calendar objects. |
 | **Smart Consolidation** | 🔗 | Merges consecutive 15/30-min segments into single human blocks. |
 
@@ -57,7 +60,7 @@ We built an **automated coordinate-mapping engine**. By reading the underlying X
 assistant("What classes do I have today?")
 
 # 🔍 Find every instance of a specific course
-assistant("When is the Data Security session?")
+assistant("When is the Machine Learning session?")
 
 # ⏱️ Check a specific time-window
 assistant("Today 12:15 class")
