@@ -61,7 +61,7 @@ The engine "hydrates" the grid, splitting merged cells and standardizing every s
 
 ## 🚀 Key Advantages
 
-*   **✨ Zero Manual Entry:** Syncs directly via live URL.
+*   **✨ Zero Manual Entry:** Syncs directly via live URL of drive, etc.
 *   **🧠 Context Awareness:** Automatically identifies "today" vs "tomorrow" using system clocks.
 *   **🛡️ Gap Preservation:** Smart enough to know the difference between a merged lecture and a free period.
 *   **💬 Human-Centric Output:** No column letters or row numbers—just clean times and subjects.
