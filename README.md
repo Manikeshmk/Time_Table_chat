@@ -1,3 +1,7 @@
+![Repo visits](https://hits.sh/github.com/Manikeshmk/Time_Table_chat.svg?label=repo%20visits)
+![GitHub stars](https://img.shields.io/github/stars/Manikeshmk/Time_Table_chat?style=logo&logo=github&label=⭐%20Stars) 
+![GitHub forks](https://img.shields.io/github/forks/Manikeshmk/Time_Table_chat?style=social)
+
 # 📅 Intelligent Timetable & Schedule Automator
 > **Transforming messy spreadsheets into queryable intelligence.**
 
